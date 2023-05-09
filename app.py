@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import repositorio
+import json
 
 app = Flask(__name__)
 
@@ -8,7 +9,7 @@ app = Flask(__name__)
 # Ao enviar dados para o servidor, a máquina do cliente usa um POST
 
 #É preciso criar rotas que levem em conta as seguintes funcionalidades:
-#Listar todos os produtosn o template index.html
+#Listar todos os produtos no template index.html
 @app.route("/")
 def listagem_produtos():
     return render_template('index.html', produtos=repositorio.retornar_produtos())

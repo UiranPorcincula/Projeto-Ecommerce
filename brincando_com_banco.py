@@ -1,11 +1,11 @@
 import sqlite3
 
-# ESTE ARQUIVO CONTÉM O USO DAS PRINCIPAIS OPERAÇÕES DE BANCOS DE DADOS. CADA REMOVA OS COMENTÁRIOS (# ) DO INÍCIO DE CADA LINHA DE COMANDOS PARA FAZER OS RESPECTIVOS TESTES.
-# DICA: O VSCode conta com a opção "Toggle Line Comment" que automaticamente inclui ou exclui comentários do início das linhas selecionadas.
+# # ESTE ARQUIVO CONTÉM O USO DAS PRINCIPAIS OPERAÇÕES DE BANCOS DE DADOS. CADA REMOVA OS COMENTÁRIOS (# ) DO INÍCIO DE CADA LINHA DE COMANDOS PARA FAZER OS RESPECTIVOS TESTES.
+# # DICA: O VSCode conta com a opção "Toggle Line Comment" que automaticamente inclui ou exclui comentários do início das linhas selecionadas.
 
 
 
-# PARA EXECUTAR UM SELECT (OPERAÇÃO QUE RETORNA DADOS DO BANCO) SEM UMA CLÁUSULA DE RESTRIÇÃO (WHERE) DEVEMOS USAR O MÉTODO FETCHALL() DO CURSOR, POIS ESPERA-SE RECEBER VÁRIAS LINHAS COMO RESULTADO
+# # PARA EXECUTAR UM SELECT (OPERAÇÃO QUE RETORNA DADOS DO BANCO) SEM UMA CLÁUSULA DE RESTRIÇÃO (WHERE) DEVEMOS USAR O MÉTODO FETCHALL() DO CURSOR, POIS ESPERA-SE RECEBER VÁRIAS LINHAS COMO RESULTADO
 conn = sqlite3.connect("produtos.db") #iniciando a conexão com o arquivo de banco de dados SQLite
 cursor = conn.cursor() #criando um novo cursor para poder realizar operações neste banco
 sql_select = "SELECT * FROM produtos" #uma variável string apenas para escrevermos o comando que será executado. É opcional, mas ajuda na legibilidade
@@ -17,7 +17,7 @@ print(f"Seu conteúdo é {produtos}")
 print()
 conn.close()#fechando a conexão com o banco de dados. É MUITO importante não esquecer de fechar a conexão com o banco para evitar erros
 
-# PARA EXECUTAR UM SELECT (OPERAÇÃO QUE RETORNA DADOS DO BANCO) COM UMA CLÁUSULA DE RESTRIÇÃO (WHERE) DEVEMOS USAR O MÉTODO FETCHONE() DO CURSOR, POIS ESPERA-SE RECEBER APENAS UMA LINHA COMO RESULTADO
+# # PARA EXECUTAR UM SELECT (OPERAÇÃO QUE RETORNA DADOS DO BANCO) COM UMA CLÁUSULA DE RESTRIÇÃO (WHERE) DEVEMOS USAR O MÉTODO FETCHONE() DO CURSOR, POIS ESPERA-SE RECEBER APENAS UMA LINHA COMO RESULTADO
 conn = sqlite3.connect("produtos.db") #iniciando a conexão com o arquivo de banco de dados SQLite
 cursor = conn.cursor() #criando um novo cursor para poder realizar operações neste banco
 sql_select = "SELECT * FROM produtos WHERE id_produto = ?" #uma variável string apenas para escrevermos o comando que será executado. É opcional, mas ajuda na legibilidade. 
@@ -29,7 +29,7 @@ print(f"Seu conteúdo é {produto}")
 print()
 conn.close()#fechando a conexão com o banco de dados. É MUITO importante não esquecer de fechar a conexão com o banco para evitar erros
 
-# PARA EXECUTAR UM INSERT (OPERAÇÃO QUE INCLUI DADOS NO BANCO), PRECISAMOS UTILIZAR O MÉTODO COMMIT, QUE GRAVA NO BANCO AS ALTERAÇÕES QUE FOREM FEITAS
+# # PARA EXECUTAR UM INSERT (OPERAÇÃO QUE INCLUI DADOS NO BANCO), PRECISAMOS UTILIZAR O MÉTODO COMMIT, QUE GRAVA NO BANCO AS ALTERAÇÕES QUE FOREM FEITAS
 conn = sqlite3.connect("produtos.db") #iniciando a conexão com o arquivo de banco de dados SQLite
 cursor = conn.cursor() #criando um novo cursor para poder realizar operações neste banco
 sql_insert = "INSERT INTO produtos (nome_produto, descricao_produto, preco_produto, imagem_produto) VALUES (?, ?, ?, ?)"
@@ -41,8 +41,7 @@ print("Inclusão de dados bem sucedida!")
 print()
 
 
-
-# PARA EXECUTAR UM UPDATE (OPERAÇÃO QUE ATUALIZA DADOS DO BANCO), PRECISAMOS UTILIZAR O MÉTODO COMMIT, QUE GRAVA NO BANCO AS ALTERAÇÕES QUE FOREM FEITAS
+# # PARA EXECUTAR UM UPDATE (OPERAÇÃO QUE ATUALIZA DADOS DO BANCO), PRECISAMOS UTILIZAR O MÉTODO COMMIT, QUE GRAVA NO BANCO AS ALTERAÇÕES QUE FOREM FEITAS
 conn = sqlite3.connect("produtos.db") #iniciando a conexão com o arquivo de banco de dados SQLite
 cursor = conn.cursor()#criando um novo cursor para poder realizar operações neste banco
 sql_update = "UPDATE produtos SET nome_produto = ?, descricao_produto = ?, preco_produto = ?, imagem_produto = ? WHERE id_produto =?"
@@ -53,7 +52,7 @@ print("Alteração de dados bem sucedida!")
 print()
 
 
-# PARA EXECUTAR UM DELETE (OPERAÇÃO QUE REMOVE DADOS DO BANCO), PRECISAMOS UTILIZAR O MÉTODO COMMIT, QUE GRAVA NO BANCO AS ALTERAÇÕES QUE FOREM FEITAS
+# # PARA EXECUTAR UM DELETE (OPERAÇÃO QUE REMOVE DADOS DO BANCO), PRECISAMOS UTILIZAR O MÉTODO COMMIT, QUE GRAVA NO BANCO AS ALTERAÇÕES QUE FOREM FEITAS
 conn = sqlite3.connect("produtos.db")
 cursor = conn.cursor()
 sql_delete = "DELETE FROM produtos WHERE id_produto = ?"
